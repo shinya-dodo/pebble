@@ -150,7 +150,7 @@
 			});
 			if(getQueryVariable("color") == "0")
 			{
-				$("#color").parent().hide();
+				$("#color").parent().prop("disabled", true);
 			}
 		});
 		function getQueryVariable(variable)
