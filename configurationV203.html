@@ -151,6 +151,12 @@
 			if(getQueryVariable("color") == "0")
 			{
 				$("#color").prop("disabled", true);
+				if($("#color").prop('checked'))
+				{
+					$("#color").prop("checked", false);
+					$("#black").prop("checked", true);
+					$("input[name=bgcolor]").checkboxradio('refresh');
+				}
 			}
 		});
 		function getQueryVariable(variable)
