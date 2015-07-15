@@ -139,8 +139,8 @@
 			{
 				ls_pto = JSON.stringify(saveOptions());
 				//localStorageに保存
-          		if (typeof window.localStorage !== "undefined") 
-          		{
+	          		if (typeof window.localStorage !== "undefined") 
+	          		{
 					window.localStorage.pebble_DateTimeCalendar2_options = ls_pto;
 				}
 				
@@ -148,6 +148,11 @@
 
 				location.href = return_to + ls_pto;
 			});
+			if(getQueryVariable("color") == "0")
+			{
+				$("#color").css("display", "none");
+				
+			}
 		});
 		function getQueryVariable(variable)
 		{
