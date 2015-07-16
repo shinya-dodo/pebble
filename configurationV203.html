@@ -155,8 +155,8 @@
 				{
 					$("#color").prop("checked", false);
 					$("#black").prop("checked", true);
-					$("input[name=bgcolor]").checkboxradio('refresh');
-					$("#color").parent.css("background-color", "gray");
+					$("input[name=bgcolor]").checkboxradio("refresh");					$("#color").parent.css("background-color", "gray");
+					$("#color").parent().css("background-color", "gray");
 				}
 			}
 		});
