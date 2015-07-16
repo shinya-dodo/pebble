@@ -154,9 +154,9 @@
 				if($("#color").prop('checked'))
 				{
 					$("#color").prop("checked", false);
-					$("#color").parent.css("background-color", "gray");
 					$("#black").prop("checked", true);
 					$("input[name=bgcolor]").checkboxradio('refresh');
+					$("#color").parent.css("background-color", "gray");
 				}
 			}
 		});
