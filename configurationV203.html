@@ -150,16 +150,14 @@
 			});
 			if(getQueryVariable("color") == "0")
 			{
-				$("#color").prop("disabled", true);
-				$("#color").parent().prop("disabled", true);
 				if($("#color").prop('checked'))
 				{
 					$("#color").prop("checked", false);
 					$("#black").prop("checked", true);
-					$("input[name=bgcolor]").checkboxradio("refresh");
-					$("#color").css("background-color", "gray");
-					$("#color").parent().css("background-color", "gray");
+					
 				}
+				$("#color").prop("disabled", true);
+				$("input[name=bgcolor]").checkboxradio('refresh');
 			}
 		});
 		function getQueryVariable(variable)
