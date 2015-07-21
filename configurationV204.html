@@ -131,9 +131,9 @@
 		{
 			//localStorageにあれば読み込み
 			if (typeof window.localStorage !== "undefined") {
-				if (window.localStorage.pebble_DateTimeCalendar2_options) 
+				if (window.localStorage.getItem("pebble_DateTimeCalendar2_options")) 
 				{
-					ls_pto = JSON.parse(window.localStorage.pebble_DateTimeCalendar2_options);
+					ls_pto = JSON.parse(window.localStorage.getItem("pebble_DateTimeCalendar2_options"));
 					
 		  			$("input[name=bgcolor][value=" +ls_pto["bgcolor"] + "]").prop('checked',true);
 		  			$("input[name=bgcolor]").checkboxradio('refresh');	
@@ -177,7 +177,7 @@
 				//localStorageに保存
 	          		if (typeof window.localStorage !== "undefined") 
 	          		{
-					window.localStorage.pebble_DateTimeCalendar2_options = ls_pto;
+					window.localStorage.setItem("pebble_DateTimeCalendar2_options", ls_pto);
 				}
 				
 				var return_to = getQueryParam("return_to", "pebblejs://close#");
