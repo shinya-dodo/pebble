@@ -21,7 +21,7 @@
 <fieldset data-role="controlgroup" data-type="horizontal" data-mini="true">
     <legend>BackColor1:</legend>
     <input type="text" name="nmColor" id="txtBack1"/>
-	<div>Celeste</div>
+	<div></div>
 </fieldset>
 <fieldset data-role="controlgroup" data-type="horizontal" data-mini="true">
     <legend>ForeColor1:</legend>
@@ -105,20 +105,7 @@
 			    showPaletteOnly: true,
 			    showPalette:true,
 			    hideAfterPaletteSelect:true,
-			    palette: vpalette,
-			    change: function(color)
-			    {
-			      	//change event execute write
-			      	for(var i in colors)
-	                {
-	                	if(colors[i].value == color.toHexString().toUpperCase())
-	                	{
-	                		$(this).parent().text(colors[i].name);
-	                		break;
-	                	}
-	                }
-			      	
-			    }
+			    palette: vpalette
 			});
 			
 			//色初期設定
