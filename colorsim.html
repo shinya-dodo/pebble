@@ -37,6 +37,8 @@
     <select name="ColorPicker" id="ddlBorder" ></select>
 </fieldset>
 
+<button type="submit" data-theme="d" id="btnDefault">Default</button>
+
     </div>
 
 <br />
@@ -128,6 +130,15 @@
 			$("#ddlFore2").change();
 			$("#ddlBorder").change();
 			
+			$("#btnDefault").click(function()
+			{
+				//色初期設定
+			        $("#ddlBack1").val("0xAAFFFF");	//Celeste
+				$("#ddlFore1").val("0x0055FF");	//Blue Moon
+				$("#ddlBack2").val("0xAAFFAA");	//Mint Green
+				$("#ddlFore2").val("0xAA55FF");	//Lavender Indigo
+				$("#ddlBorder").val("0xAA5500");	//Windsor Tan
+			});
 			$("#btnCancel").click(function()
 			{
 				location.href = getQueryParam("return_to", "pebblejs://close#");
@@ -136,8 +147,8 @@
 			{
 				ls_pto = JSON.stringify(saveOptions());
 				//localStorageに保存
-          		if (typeof window.localStorage !== "undefined") 
-          		{
+          			if (typeof window.localStorage !== "undefined") 
+          			{
 					window.localStorage.pebble_PebbleColorSimulator_options = ls_pto;
 				}
 				
