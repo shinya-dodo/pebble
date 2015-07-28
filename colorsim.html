@@ -37,7 +37,7 @@
     <select name="ColorPicker" id="ddlBorder" ></select>
 </fieldset>
 
-<button type="submit" data-theme="d" id="btnDefault">Default</button>
+<button type="submit" data-theme="d" style="width:30px" id="btnDefault">Default</button>
 
     </div>
 
@@ -138,6 +138,19 @@
 				$("#ddlBack2").val("0xAAFFAA");	//Mint Green
 				$("#ddlFore2").val("0xAA55FF");	//Lavender Indigo
 				$("#ddlBorder").val("0xAA5500");	//Windsor Tan
+				
+				//色情報更新
+		   		$("#ddlBack1").selectmenu('refresh');
+				$("#ddlFore1").selectmenu('refresh');
+				$("#ddlBack2").selectmenu('refresh');
+				$("#ddlFore2").selectmenu('refresh');
+				$("#ddlBorder").selectmenu('refresh');
+				
+				$("#ddlBack1").change();
+				$("#ddlFore1").change();
+				$("#ddlBack2").change();
+				$("#ddlFore2").change();
+				$("#ddlBorder").change();
 			});
 			$("#btnCancel").click(function()
 			{
