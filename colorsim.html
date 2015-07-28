@@ -88,14 +88,14 @@
 			        $('select[name="ColorPicker"]').children().remove();
 	                for(var i in json)
 	                {
-	                    $('select[name="ColorPicker"]').append("<option value='" + json[i].value.replace(/#/g,"0x") + "' style='background-color: " + json[i].value + ";color: " + json[i].color + "'>" + json[i].name + "</option>");
+	                    $('select[name="ColorPicker"]').append("<option value='" + json[i].value.replace(/#/g,"") + "' style='background-color: " + json[i].value + ";color: " + json[i].color + "'>" + json[i].name + "</option>");
 	                }
 	                //色初期設定
-		        $("#ddlBack1").val("0xAAFFFF");	//Celeste
-			$("#ddlFore1").val("0x0055FF");	//Blue Moon
-			$("#ddlBack2").val("0xAAFFAA");	//Mint Green
-			$("#ddlFore2").val("0xAA55FF");	//Lavender Indigo
-			$("#ddlBorder").val("0xAA5500");	//Windsor Tan
+		        $("#ddlBack1").val("AAFFFF");	//Celeste
+			$("#ddlFore1").val("0055FF");	//Blue Moon
+			$("#ddlBack2").val("AAFFAA");	//Mint Green
+			$("#ddlFore2").val("AA55FF");	//Lavender Indigo
+			$("#ddlBorder").val("AA5500");	//Windsor Tan
 			    }
 			});
 
@@ -135,11 +135,11 @@
 			$("#btnDefault").click(function()
 			{
 				//色初期設定
-			        $("#ddlBack1").val("0xAAFFFF");	//Celeste
-				$("#ddlFore1").val("0x0055FF");	//Blue Moon
-				$("#ddlBack2").val("0xAAFFAA");	//Mint Green
-				$("#ddlFore2").val("0xAA55FF");	//Lavender Indigo
-				$("#ddlBorder").val("0xAA5500");	//Windsor Tan
+			        $("#ddlBack1").val("AAFFFF");	//Celeste
+				$("#ddlFore1").val("0055FF");	//Blue Moon
+				$("#ddlBack2").val("AAFFAA");	//Mint Green
+				$("#ddlFore2").val("AA55FF");	//Lavender Indigo
+				$("#ddlBorder").val("AA5500");	//Windsor Tan
 				
 				//色情報更新
 		   		$("#ddlBack1").selectmenu('refresh');
