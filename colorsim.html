@@ -7,7 +7,8 @@
     <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.css" />
     <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
     <script src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>
-    <script src="analytics.js"></script>
+    <script src="spectrum.js"></script>
+    <link rel="stylesheet" href="spectrum.css" />
   </head>
   <body>
     <div data-role="page" id="main">
@@ -19,23 +20,28 @@
 <!--背景色-->
 <fieldset data-role="controlgroup" data-type="horizontal" data-mini="true">
     <legend>BackColor1:</legend>
-    <select name="ColorPicker" id="ddlBack1" ></select>
+    <input type="text" name="nmColor" id="txtBack1"/>
+	<div>Celeste</div>
 </fieldset>
 <fieldset data-role="controlgroup" data-type="horizontal" data-mini="true">
     <legend>ForeColor1:</legend>
-    <select name="ColorPicker" id="ddlFore1" ></select>
+    <input type="text" name="nmColor" id="txtFore1"/>
+    <div></div>
 </fieldset>
 <fieldset data-role="controlgroup" data-type="horizontal" data-mini="true">
     <legend>BackColor2:</legend>
-    <select name="ColorPicker" id="ddlBack2" ></select>
+    <input type="text" name="nmColor" id="txtBack2"/>
+    <div></div>
 </fieldset>
 <fieldset data-role="controlgroup" data-type="horizontal" data-mini="true">
     <legend>ForeColor2:</legend>
-    <select name="ColorPicker" id="ddlFore2" ></select>
+    <input type="text" name="nmColor" id="txtFore2"/>
+    <div></div>
 </fieldset>
 <fieldset data-role="controlgroup" data-type="horizontal" data-mini="true">
     <legend>BorderColor:</legend>
-    <select name="ColorPicker" id="ddlBorder" ></select>
+    <input type="text" name="nmColor" id="txtBorder"/>
+    <div></div>
 </fieldset>
 
 <fieldset data-role="controlgroup" data-type="horizontal">
@@ -64,25 +70,22 @@
       		
 		function saveOptions()
 		{
-			
-			var df = $("#ddlDate1").val() +
-					 $("#ddlDate2").val() +
-					 $("#ddlDate3").val() +
-					 $("#ddlDate4").val() +
-					 $("#ddlDate5").val();
 			var options =
 			{
-				"BackColor1":$("#ddlBack1").val(),
-				"ForeColor1":$("#ddlFore1").val(),
-				"BackColor2":$("#ddlBack2").val(),
-				"ForeColor2":$("#ddlFore2").val(),
-				"BorderColor":$("#ddlBorder").val()
+				"BackColor1":$("#txtBack1").spectrum("get").toHex(),
+				"ForeColor1":$("#txtFore1").spectrum("get").toHex(),
+				"BackColor2":$("#txtBack2").spectrum("get").toHex(),
+				"ForeColor2":$("#txtFore2").spectrum("get").toHex(),
+				"BorderColor":$("#txtBorder").spectrum("get").toHex()
 			}
 			return options;
 		}
 		
 		$().ready(function()
 		{
+		
+			var vpalette = [];
+  			
 			//色情報読み込み
 			var colors;
             $.ajax({
@@ -91,74 +94,62 @@
 			    async: false,
 			    success: function(json) {
 			        colors = json;
-			        $('select[name="ColorPicker"]').children().remove();
 	                for(var i in json)
 	                {
-	                    $('select[name="ColorPicker"]').append("<option value='" + json[i].value.replace(/#/g,"") + "' style='background-color: " + json[i].value + ";color: " + json[i].color + "'>" + json[i].name + "</option>");
+	                	vpalette.push(json[i].value);
 	                }
-	                //色初期設定
-		        $("#ddlBack1").val("AAFFFF");	//Celeste
-			$("#ddlFore1").val("0055FF");	//Blue Moon
-			$("#ddlBack2").val("AAFFAA");	//Mint Green
-			$("#ddlFore2").val("AA55FF");	//Lavender Indigo
-			$("#ddlBorder").val("AA5500");	//Windsor Tan
 			    }
 			});
-
-            //選択した色で背景色変更
-            $('select[name="ColorPicker"]').bind('change', function()
-            {
-		        $(this).parent("div").css("background",  colors[$(this).prop("selectedIndex")].value);
-		        $(this).parent("div").css("color",  colors[$(this).prop("selectedIndex")].color);
-		    });
-		    
+			
+			$("input[name=nmColor]").spectrum({
+			    showPaletteOnly: true,
+			    showPalette:true,
+			    hideAfterPaletteSelect:true,
+			    palette: vpalette,
+			    change: function(color)
+			    {
+			      	//change event execute write
+			      	for(var i in colors)
+	                {
+	                	if(colors[i].value == color.toHexString().toUpperCase())
+	                	{
+	                		$(this).parent().text(colors[i].name);
+	                		break;
+	                	}
+	                }
+			      	
+			    }
+			});
+			
+			//色初期設定
+		    $("#txtBack1").spectrum("set", "#AAFFFF");	//Celeste
+			$("#txtFore1").spectrum("set", "#0055FF");	//Blue Moon
+			$("#txtBack2").spectrum("set", "#AAFFAA");	//Mint Green
+			$("#txtFore2").spectrum("set", "#AA55FF");	//Lavender Indigo
+			$("#txtBorder").spectrum("set", "#AA5500");	//Windsor Tan
+				
 			//localStorageにあれば読み込み
 			if (typeof window.localStorage !== "undefined") {
 				if (window.localStorage.pebble_PebbleColorSimulator_options) 
 				{
 					ls_pto = JSON.parse(window.localStorage.pebble_PebbleColorSimulator_options);
 					
-	  				$("#ddlBack1").val(ls_pto["BackColor1"]);
-	  				$("#ddlFore1").val(ls_pto["ForeColor1"]);
-	  				$("#ddlBack2").val(ls_pto["BackColor2"]);
-	  				$("#ddlFore2").val(ls_pto["ForeColor2"]);
-	  				$("#ddlBorder").val(ls_pto["BorderColor"]);
+	  				$("#txtBack1").spectrum("set", "#" + ls_pto["BackColor1"]);
+	  				$("#txtFore1").spectrum("set", "#" + ls_pto["ForeColor1"]);
+	  				$("#txtBack2").spectrum("set", "#" + ls_pto["BackColor2"]);
+	  				$("#txtFore2").spectrum("set", "#" + ls_pto["ForeColor2"]);
+	  				$("#txtBorder").spectrum("set", "#" + ls_pto["BorderColor"]);
 		  		}
 		  	}
-		  	//色情報更新
-	   		$("#ddlBack1").selectmenu('refresh');
-			$("#ddlFore1").selectmenu('refresh');
-			$("#ddlBack2").selectmenu('refresh');
-			$("#ddlFore2").selectmenu('refresh');
-			$("#ddlBorder").selectmenu('refresh');
-			
-			$("#ddlBack1").change();
-			$("#ddlFore1").change();
-			$("#ddlBack2").change();
-			$("#ddlFore2").change();
-			$("#ddlBorder").change();
 			
 			$("#btnDefault").click(function()
 			{
 				//色初期設定
-			        $("#ddlBack1").val("AAFFFF");	//Celeste
-				$("#ddlFore1").val("0055FF");	//Blue Moon
-				$("#ddlBack2").val("AAFFAA");	//Mint Green
-				$("#ddlFore2").val("AA55FF");	//Lavender Indigo
-				$("#ddlBorder").val("AA5500");	//Windsor Tan
-				
-				//色情報更新
-		   		$("#ddlBack1").selectmenu('refresh');
-				$("#ddlFore1").selectmenu('refresh');
-				$("#ddlBack2").selectmenu('refresh');
-				$("#ddlFore2").selectmenu('refresh');
-				$("#ddlBorder").selectmenu('refresh');
-				
-				$("#ddlBack1").change();
-				$("#ddlFore1").change();
-				$("#ddlBack2").change();
-				$("#ddlFore2").change();
-				$("#ddlBorder").change();
+			    $("#txtBack1").spectrum("set", "#AAFFFF");	//Celeste
+				$("#txtFore1").spectrum("set", "#0055FF");	//Blue Moon
+				$("#txtBack2").spectrum("set", "#AAFFAA");	//Mint Green
+				$("#txtFore2").spectrum("set", "#AA55FF");	//Lavender Indigo
+				$("#txtBorder").spectrum("set", "#AA5500");	//Windsor Tan
 			});
 			$("#btnCancel").click(function()
 			{
