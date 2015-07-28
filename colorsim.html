@@ -56,6 +56,11 @@
 	</div>
 </div>
     <script>
+    		function utf8_to_b64(str) 
+    		{
+    			return window.btoa(unescape(encodeURIComponent(str)));
+      		}
+      		
 		function saveOptions()
 		{
 			
@@ -169,7 +174,7 @@
 				
 				var return_to = getQueryParam("return_to", "pebblejs://close#");
 				
-				location.href = return_to + ls_pto;
+				location.href = return_to + utf8_to_b64(ls_pto);
 			});
 		});
 		function getQueryVariable(variable)
