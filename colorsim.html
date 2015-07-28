@@ -37,7 +37,9 @@
     <select name="ColorPicker" id="ddlBorder" ></select>
 </fieldset>
 
-<button type="submit" data-theme="d" style="width:30px" id="btnDefault">Default</button>
+<fieldset data-role="controlgroup" data-type="horizontal">
+	<button type="submit" data-theme="b" style="width:30px" id="btnDefault">Load Default</button>
+</fieldset>
 
     </div>
 
@@ -132,6 +134,7 @@
 			
 			$("#btnDefault").click(function()
 			{
+				alert("Default");
 				//色初期設定
 			        $("#ddlBack1").val("0xAAFFFF");	//Celeste
 				$("#ddlFore1").val("0x0055FF");	//Blue Moon
