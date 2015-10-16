@@ -147,9 +147,8 @@
 			var vpalette = [];
   			
 			//色情報読み込み
-			var ajax = require('ajax');
-            $.ajax({
-			    url: "https://shinya-dodo.github.io/pebble/pebblecolors.json",
+            		$.ajax({
+			    url: "pebblecolors.json",
 			    dataType: 'json',
 			    async: false,
 			    success: function(json) 
