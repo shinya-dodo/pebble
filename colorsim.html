@@ -147,18 +147,18 @@
 			var vpalette = [];
   			
 			//色情報読み込み
-			
-            $.ajax({
+			$.ajax({
 			    url: "pebblecolors.json",
 			    dataType: 'json',
-			    async: false,
-			    success: function(json) {
-			        colors = json;
-	                for(var i in json)
-	                {
-	                	vpalette.push(json[i].value);
-	                }
-			    }
+			    async: false
+			}).done(function(data){
+			    colors = json;
+				for(var i in json)
+				{
+					vpalette.push(json[i].value);
+				}
+			}).fail(function(data){
+			    alert('error!!!');
 			});
 			
 			//$("input[name=nmColor]").spectrum({
