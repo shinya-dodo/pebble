@@ -147,23 +147,26 @@
 			var vpalette = [];
   			
 			//色情報読み込み
-			$.ajax({
+			
+            $.ajax({
 			    url: "pebblecolors.json",
 			    dataType: 'json',
 			    async: false,
-			}).done(function(data){
-			    colors = json;
+			    success: function(json) 
+			    {
+			        colors = json;
 				for(var i in json)
 				{
 					vpalette.push(json[i].value);
 				}
-				alert('success');
-			}).fail(function(data){
-			    alert('error!!!');
+			     }
+			     ,
+			    error: function(json) {
+			       alert('error!!!');
+			    }
 			});
 			
-			//$("input[name=nmColor]").spectrum({
-			$("#txtBack1").spectrum({
+			$("input[name=nmColor]").spectrum({
 				showInput: true,
 			    showPaletteOnly: true,
 			    showPalette:true,
@@ -186,7 +189,7 @@
 			});
 			
 			//色初期設定
-		    //$("#txtBack1").spectrum("set", "#AAFFFF");	//Celeste
+		    $("#txtBack1").spectrum("set", "#AAFFFF");	//Celeste
 			$("#txtFore1").spectrum("set", "#0055FF");	//Blue Moon
 			$("#txtBack2").spectrum("set", "#AAFFAA");	//Mint Green
 			$("#txtFore2").spectrum("set", "#AA55FF");	//Lavender Indigo
