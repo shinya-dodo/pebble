@@ -147,24 +147,33 @@
 			var vpalette = [];
   			
 			//色情報読み込み
-			
-            $.ajax({
-			    url: "https://shinya-dodo.github.io/pebble/pebblecolors.json",
-			    dataType: 'json',
-			    async: false,
-			    success: function(json) 
-			    {
-			        colors = json;
-				for(var i in json)
+			var ajax = require('ajax');
+			ajax({ url: 'pebblecolors.json', type: 'json', async: false },
+			  function(data) {
+			    colors = data;
+				for(var i in data)
 				{
-					vpalette.push(json[i].value);
+					vpalette.push(data[i].value);
 				}
-			     }
-			     ,
-			    error: function(json) {
-			       alert(json.join(":"));
-			    }
-			});
+			  }
+			);
+            //$.ajax({
+	//		    url: "https://shinya-dodo.github.io/pebble/pebblecolors.json",
+	//		    dataType: 'json',
+	//		    async: false,
+	//		    success: function(json) 
+	//		    {
+	//		        colors = json;
+	//			for(var i in json)
+	//			{
+	//				vpalette.push(json[i].value);
+	//			}
+	//		     }
+	//		     ,
+	//		    error: function(json) {
+	//		       alert(json.join(":"));
+	//		    }
+	//		});
 			
 			$("input[name=nmColor]").spectrum({
 				showInput: true,
