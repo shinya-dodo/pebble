@@ -183,33 +183,6 @@
 			    },
 			});
 			
-			//色初期設定
-		    $("#txtBack1").spectrum("set", "#AAFFFF");	//Celeste
-			$("#txtFore1").spectrum("set", "#0055FF");	//Blue Moon
-			$("#txtBack2").spectrum("set", "#AAFFAA");	//Mint Green
-			$("#txtFore2").spectrum("set", "#AA55FF");	//Lavender Indigo
-			$("#txtBorder").spectrum("set", "#AA5500");	//Windsor Tan
-				
-			//localStorageにあれば読み込み
-			if (typeof window.localStorage !== "undefined") {
-				if (window.localStorage.pebble_PebbleColorSimulator_options) 
-				{
-					ls_pto = JSON.parse(window.localStorage.pebble_PebbleColorSimulator_options);
-					
-	  				$("#txtBack1").spectrum("set", "#" + ls_pto["BackColor1"]);
-	  				$("#txtFore1").spectrum("set", "#" + ls_pto["ForeColor1"]);
-	  				$("#txtBack2").spectrum("set", "#" + ls_pto["BackColor2"]);
-	  				$("#txtFore2").spectrum("set", "#" + ls_pto["ForeColor2"]);
-	  				$("#txtBorder").spectrum("set", "#" + ls_pto["BorderColor"]);
-		  		}
-		  	}
-			
-			fncChange ("#txtBack1", $("#txtBack1").spectrum("get").toHexString().toUpperCase());
-			fncChange ("#txtFore1", $("#txtFore1").spectrum("get").toHexString().toUpperCase());
-			fncChange ("#txtBack2", $("#txtBack2").spectrum("get").toHexString().toUpperCase());
-			fncChange ("#txtFore2", $("#txtFore2").spectrum("get").toHexString().toUpperCase());
-			fncChange ("#txtBorder", $("#txtBorder").spectrum("get").toHexString().toUpperCase());
-			
 			$("#btnDefault").click(function()
 			{
 				//色初期設定
