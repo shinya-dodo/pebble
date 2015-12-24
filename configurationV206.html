@@ -77,9 +77,9 @@
 
 <fieldset data-role="controlgroup" data-type="horizontal" data-mini="true">
     <legend>ShowHoliday(JapaneseOnly):</legend>
-        <input name="ShowHoliday" id="HolidayOff" value="0" checked="checked" type="radio">
+        <input name="holiday" id="HolidayOff" value="0" checked="checked" type="radio">
         <label for="HolidayOff">Off</label>
-        <input name="ShowHoliday" id="HolidayOn" value="1" type="radio">
+        <input name="holiday" id="HolidayOn" value="1" type="radio">
         <label for="HolidayOn">On</label>
 </fieldset>
 
@@ -139,7 +139,8 @@
 				"keyThu": $("#txtThu").val(), 
 				"keyFri": $("#txtFri").val(), 
 				"keySat": $("#txtSat").val(),
-				"ampm": parseInt($("input:radio[name=ampm]:checked").val())
+				"ampm": parseInt($("input:radio[name=ampm]:checked").val()),
+				"holiday": parseInt($("input:radio[name=holiday]:checked").val())
 			}
 			return options;
 		}
@@ -185,6 +186,11 @@
 		  			{
 	  					$("input[name=ampm][value=" +ls_pto["ampm"] + "]").prop('checked',true);
 		  				$("input[name=ampm]").checkboxradio('refresh');
+		  			}
+		  			if('holiday' in ls_pto)
+		  			{
+	  					$("input[name=holiday][value=" +ls_pto["holiday"] + "]").prop('checked',true);
+		  				$("input[name=holiday]").checkboxradio('refresh');
 		  			}
 		  		}
 		  	}
