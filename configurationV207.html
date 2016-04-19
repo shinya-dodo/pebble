@@ -302,7 +302,9 @@
 	  					$("input[name=Hourly][value=" +ls_pto["hourly"] + "]").prop('checked',true);
 		  				$("input[name=Hourly]").checkboxradio('refresh');
 		  				$("#stTime").val(ls_pto["stTime"]);
+		  				$("#stTime").selectmenu('refresh');
 		  				$("#edTime").val(ls_pto["edTime"]);
+		  				$("#edTime").selectmenu('refresh');
 		  				
 		  				$("input[name=Disconnect][value=" +ls_pto["disconnect"] + "]").prop('checked',true);
 		  				$("input[name=Disconnect]").checkboxradio('refresh');
