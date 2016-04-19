@@ -192,7 +192,12 @@
 				"keyFri": $("#txtFri").val(), 
 				"keySat": $("#txtSat").val(),
 				"ampm": parseInt($("input:radio[name=ampm]:checked").val()),
-				"holiday": parseInt($("input:radio[name=holiday]:checked").val())
+				"holiday": parseInt($("input:radio[name=holiday]:checked").val()),
+				"hourly": parseInt($("input:radio[name=Hourly]:checked").val()),
+				"stTime": parseInt($("#stTime").val()),
+				"edTime": parseInt($("#edTime").val()),
+				"disconnect": parseInt($("input:radio[name=Disconnect]:checked").val()),
+				"connect": parseInt($("input:radio[name=Connect]:checked").val())
 			}
 			return options;
 		}
@@ -243,6 +248,19 @@
 		  			{
 	  					$("input[name=holiday][value=" +ls_pto["holiday"] + "]").prop('checked',true);
 		  				$("input[name=holiday]").checkboxradio('refresh');
+		  			}
+		  			if('hourly' in ls_pto)
+		  			{
+	  					$("input[name=Hourly][value=" +ls_pto["hourly"] + "]").prop('checked',true);
+		  				$("input[name=Hourly]").checkboxradio('refresh');
+		  				$("#stTime").val(ls_pto["stTime"]);
+		  				$("#edTime").val(ls_pto["edTime"]);
+		  				
+		  				$("input[name=Disconnect][value=" +ls_pto["disconnect"] + "]").prop('checked',true);
+		  				$("input[name=Disconnect]").checkboxradio('refresh');
+		  				
+		  				$("input[name=Connect][value=" +ls_pto["connect"] + "]").prop('checked',true);
+		  				$("input[name=Connect]").checkboxradio('refresh');
 		  			}
 		  		}
 		  	}
