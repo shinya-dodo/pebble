@@ -8,6 +8,12 @@
     <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.css" />
     <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
     <script src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>
+    <style type="text/css">
+        .inlineinput div 
+        {
+    		display: inline;
+		}
+    </style>
   </head>
   <body>
     <div data-role="page" id="main">
@@ -47,7 +53,7 @@
 </fieldset>
 <fieldset data-role="controlgroup" data-type="horizontal" data-mini="true">
     <legend>Enabled Hourly Vibration:</legend>
-    <span style="display: inline;">
+    <span class="inlineinput">
     <input type="number" value="8" min="0" max="23" id="stTime" style="display: inline; width: 50px;">
     ～
     <input type="number" value="20" min="0" max="23" id="edTime" style="display: inline; width: 50px;">
