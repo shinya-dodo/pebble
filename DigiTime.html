@@ -35,6 +35,86 @@
 </fieldset>
 
 <fieldset data-role="controlgroup" data-type="horizontal" data-mini="true">
+    <legend>24H / 12H:</legend>
+        <input name="ampm" id="24H" value="0" checked="checked" type="radio">
+        <label for="24H">24H</label>
+        <input name="ampm" id="12H" value="1" type="radio">
+        <label for="12H">12H</label>
+</fieldset>
+
+<fieldset data-role="controlgroup" data-type="horizontal" data-mini="true">
+    <legend>ShowHoliday(JapaneseOnly):</legend>
+        <input name="holiday" id="HolidayOff" value="0" checked="checked" type="radio">
+        <label for="HolidayOff">Off</label>
+        <input name="holiday" id="HolidayOn" value="1" type="radio">
+        <label for="HolidayOn">On</label>
+</fieldset>
+	      
+<fieldset id="DateFormat" data-role="controlgroup" data-type="vertical" data-mini="true">
+    <legend>Date Format:</legend>
+    <select name="ddlDate1" id="ddlDate1">
+		<option value="Y" selected>YYYY</option>
+		<option value="m">MM</option>
+		<option value="d">DD</option>
+		<option value="G">GGYY</option>
+		<option value=""></option>
+	</select>
+	<select name="ddlDate2" id="ddlDate2">
+		<option value="/" selected>/</option>
+		<option value="-">-</option>
+		<option value=".">.</option>
+		<option value=""></option>
+	</select>
+	<select name="ddlDate3" id="ddlDate3">
+		<option value="Y">YYYY</option>
+		<option value="m" selected>MM</option>
+		<option value="d">DD</option>
+	</select>
+	<select name="ddlDate4" id="ddlDate4">
+		<option value="/" selected>/</option>
+		<option value="-">-</option>
+		<option value=".">.</option>
+		<option value=""></option>
+	</select>
+	<select name="ddlDate5" id="ddlDate5">
+		<option value="Y">YYYY</option>
+		<option value="m">MM</option>
+		<option value="d" selected>DD</option>
+		<option value=""></option>
+	</select>
+  <select name="ddlDate6" id="ddlDate6">
+		<option value="/" selected>/</option>
+		<option value="-">-</option>
+		<option value=".">.</option>
+		<option value=""></option>
+	</select>
+	<select name="ddlDate7" id="ddlDate7">
+		<option value="Y">YYYY</option>
+		<option value="m">MM</option>
+		<option value="d" selected>DD</option>
+		<option value=""></option>
+	</select>
+</fieldset>
+	      
+<fieldset data-role="collapsible" data-mini="true">	
+    <legend>Days of Week:</legend>
+    <label for="keySun">Sunday:</label>
+    <input name="keySun" id="txtSun" value="Su" data-mini="true" type="text" maxlength="2">
+    <label for="keyMon" >Monday:</label>
+    <input name="keyMon" id="txtMon" value="Mo" data-mini="true" type="text" maxlength="2">
+    <label for="keyTue">Tuesday:</label>
+    <input name="keyTue" id="txtTue" value="Tu" data-mini="true" type="text" maxlength="2">
+    <label for="keyWed">Wednesday:</label>
+    <input name="keyWed" id="txtWed" value="We" data-mini="true" type="text" maxlength="2">
+    <label for="keyThu">Thursday:</label>
+    <input name="keyThu" id="txtThu" value="Th" data-mini="true" type="text" maxlength="2">
+    <label for="keyFri">Friday:</label>
+    <input name="keyFri" id="txtFri" value="Fr" data-mini="true" type="text" maxlength="2">
+    <label for="keySat">Saturday:</label>
+    <input name="keySat" id="txtSat" value="Sa" data-mini="true" type="text" maxlength="2">
+</fieldset>
+	      
+<fieldset data-role="controlgroup" data-type="horizontal" data-mini="true">
     <legend>Hourly Vibration:</legend>
         <input name="Hourly" id="Hourly_n" value="0" type="radio" checked="checked">
         <label for="Hourly_n">None</label>
@@ -128,85 +208,6 @@
         <label for="Connect_d">Double</label>
 </fieldset>
 
-<fieldset id="DateFormat" data-role="controlgroup" data-type="vertical" data-mini="true">
-    <legend>Date Format:</legend>
-    <select name="ddlDate1" id="ddlDate1">
-		<option value="Y" selected>YYYY</option>
-		<option value="m">MM</option>
-		<option value="d">DD</option>
-		<option value="G">GGYY</option>
-		<option value=""></option>
-	</select>
-	<select name="ddlDate2" id="ddlDate2">
-		<option value="/" selected>/</option>
-		<option value="-">-</option>
-		<option value=".">.</option>
-		<option value=""></option>
-	</select>
-	<select name="ddlDate3" id="ddlDate3">
-		<option value="Y">YYYY</option>
-		<option value="m" selected>MM</option>
-		<option value="d">DD</option>
-	</select>
-	<select name="ddlDate4" id="ddlDate4">
-		<option value="/" selected>/</option>
-		<option value="-">-</option>
-		<option value=".">.</option>
-		<option value=""></option>
-	</select>
-	<select name="ddlDate5" id="ddlDate5">
-		<option value="Y">YYYY</option>
-		<option value="m">MM</option>
-		<option value="d" selected>DD</option>
-		<option value=""></option>
-	</select>
-  <select name="ddlDate6" id="ddlDate6">
-		<option value="/" selected>/</option>
-		<option value="-">-</option>
-		<option value=".">.</option>
-		<option value=""></option>
-	</select>
-	<select name="ddlDate7" id="ddlDate7">
-		<option value="Y">YYYY</option>
-		<option value="m">MM</option>
-		<option value="d" selected>DD</option>
-		<option value=""></option>
-	</select>
-</fieldset>
-
-<fieldset data-role="controlgroup" data-type="horizontal" data-mini="true">
-    <legend>24H / 12H:</legend>
-        <input name="ampm" id="24H" value="0" checked="checked" type="radio">
-        <label for="24H">24H</label>
-        <input name="ampm" id="12H" value="1" type="radio">
-        <label for="12H">12H</label>
-</fieldset>
-
-<fieldset data-role="controlgroup" data-type="horizontal" data-mini="true">
-    <legend>ShowHoliday(JapaneseOnly):</legend>
-        <input name="holiday" id="HolidayOff" value="0" checked="checked" type="radio">
-        <label for="HolidayOff">Off</label>
-        <input name="holiday" id="HolidayOn" value="1" type="radio">
-        <label for="HolidayOn">On</label>
-</fieldset>
-
-<fieldset data-role="collapsible" data-mini="true">	
-    <legend>Days of Week:</legend>
-    <label for="keySun">Sunday:</label>
-    <input name="keySun" id="txtSun" value="Su" data-mini="true" type="text" maxlength="2">
-    <label for="keyMon" >Monday:</label>
-    <input name="keyMon" id="txtMon" value="Mo" data-mini="true" type="text" maxlength="2">
-    <label for="keyTue">Tuesday:</label>
-    <input name="keyTue" id="txtTue" value="Tu" data-mini="true" type="text" maxlength="2">
-    <label for="keyWed">Wednesday:</label>
-    <input name="keyWed" id="txtWed" value="We" data-mini="true" type="text" maxlength="2">
-    <label for="keyThu">Thursday:</label>
-    <input name="keyThu" id="txtThu" value="Th" data-mini="true" type="text" maxlength="2">
-    <label for="keyFri">Friday:</label>
-    <input name="keyFri" id="txtFri" value="Fr" data-mini="true" type="text" maxlength="2">
-    <label for="keySat">Saturday:</label>
-    <input name="keySat" id="txtSat" value="Sa" data-mini="true" type="text" maxlength="2">
-</fieldset>
     </div>
 
 <br />
