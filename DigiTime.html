@@ -277,68 +277,58 @@
 		{
 			//localStorageにあれば読み込み
 			if (typeof window.localStorage !== "undefined") {
-				if (window.localStorage.getItem("pebble_DateTimeCalendar2_options")) 
+				if (window.localStorage.getItem("pebble_DigiTimeXL_options")) 
 				{
-					ls_pto = JSON.parse(window.localStorage.getItem("pebble_DateTimeCalendar2_options"));
+					ls_pto = JSON.parse(window.localStorage.getItem("pebble_DigiTimeXL_options"));
 					
 		  			$("input[name=bgcolor][value=" +ls_pto["bgcolor"] + "]").prop('checked',true);
 		  			$("input[name=bgcolor]").checkboxradio('refresh');	
 		  			
 		  			$("input[name=week][value=" +ls_pto["week"] + "]").prop('checked',true);
 		  			$("input[name=week]").checkboxradio('refresh');	
-		  			
-		  			if('dateformat' in ls_pto)
-		  			{
-		  				$("#ddlDate1").val(ls_pto["dateformat"].substr(0, 1));
-		  				$("#ddlDate2").val(ls_pto["dateformat"].substr(1, 1));
-		  				$("#ddlDate3").val(ls_pto["dateformat"].substr(2, 1));
-		  				$("#ddlDate4").val(ls_pto["dateformat"].substr(3, 1));
-		  				$("#ddlDate5").val(ls_pto["dateformat"].substr(4, 1));
-              $("#ddlDate6").val(ls_pto["dateformat"].substr(5, 1));
-              $("#ddlDate7").val(ls_pto["dateformat"].substr(6, 1));
-		  				$("#ddlDate1").selectmenu('refresh');
-		  				$("#ddlDate2").selectmenu('refresh');
-		  				$("#ddlDate3").selectmenu('refresh');
-		  				$("#ddlDate4").selectmenu('refresh');
-		  				$("#ddlDate5").selectmenu('refresh');
-              $("#ddlDate6").selectmenu('refresh');
-              $("#ddlDate7").selectmenu('refresh');
-		  			}
-		  			if('keySun' in ls_pto)
-		  			{
-		  				$("#txtSun").val(ls_pto["keySun"]);
-		  				$("#txtMon").val(ls_pto["keyMon"]);
-		  				$("#txtTue").val(ls_pto["keyTue"]);
-		  				$("#txtWed").val(ls_pto["keyWed"]);
-		  				$("#txtThu").val(ls_pto["keyThu"]);
-		  				$("#txtFri").val(ls_pto["keyFri"]);
-		  				$("#txtSat").val(ls_pto["keySat"]);
-		  			}
-		  			if('ampm' in ls_pto)
-		  			{
-	  					$("input[name=ampm][value=" +ls_pto["ampm"] + "]").prop('checked',true);
-		  				$("input[name=ampm]").checkboxradio('refresh');
-		  			}
-		  			if('holiday' in ls_pto)
-		  			{
-	  					$("input[name=holiday][value=" +ls_pto["holiday"] + "]").prop('checked',true);
-		  				$("input[name=holiday]").checkboxradio('refresh');
-		  			}
-		  			if('hourly' in ls_pto)
-		  			{
-	  					$("input[name=Hourly][value=" +ls_pto["hourly"] + "]").prop('checked',true);
-		  				$("input[name=Hourly]").checkboxradio('refresh');
-		  				$("#stTime").val(ls_pto["stTime"]);
-		  				$("#stTime").selectmenu('refresh');
-		  				$("#edTime").val(ls_pto["edTime"]);
-		  				$("#edTime").selectmenu('refresh');
-		  				
-		  				$("input[name=Disconnect][value=" +ls_pto["disconnect"] + "]").prop('checked',true);
-		  				$("input[name=Disconnect]").checkboxradio('refresh');
-		  				
-		  				$("input[name=Connect][value=" +ls_pto["connect"] + "]").prop('checked',true);
-		  				$("input[name=Connect]").checkboxradio('refresh');
-		  			}
+					
+					$("#ddlDate1").val(ls_pto["dateformat"].substr(0, 1));
+					$("#ddlDate2").val(ls_pto["dateformat"].substr(1, 1));
+					$("#ddlDate3").val(ls_pto["dateformat"].substr(2, 1));
+					$("#ddlDate4").val(ls_pto["dateformat"].substr(3, 1));
+					$("#ddlDate5").val(ls_pto["dateformat"].substr(4, 1));
+					$("#ddlDate6").val(ls_pto["dateformat"].substr(5, 1));
+					$("#ddlDate7").val(ls_pto["dateformat"].substr(6, 1));
+					$("#ddlDate1").selectmenu('refresh');
+					$("#ddlDate2").selectmenu('refresh');
+					$("#ddlDate3").selectmenu('refresh');
+					$("#ddlDate4").selectmenu('refresh');
+					$("#ddlDate5").selectmenu('refresh');
+				      	$("#ddlDate6").selectmenu('refresh');
+				      	$("#ddlDate7").selectmenu('refresh');
+					
+					$("#txtSun").val(ls_pto["keySun"]);
+					$("#txtMon").val(ls_pto["keyMon"]);
+					$("#txtTue").val(ls_pto["keyTue"]);
+					$("#txtWed").val(ls_pto["keyWed"]);
+					$("#txtThu").val(ls_pto["keyThu"]);
+					$("#txtFri").val(ls_pto["keyFri"]);
+					$("#txtSat").val(ls_pto["keySat"]);
+					
+					$("input[name=ampm][value=" +ls_pto["ampm"] + "]").prop('checked',true);
+					$("input[name=ampm]").checkboxradio('refresh');
+					
+					$("input[name=holiday][value=" +ls_pto["holiday"] + "]").prop('checked',true);
+					$("input[name=holiday]").checkboxradio('refresh');
+					
+					$("input[name=Hourly][value=" +ls_pto["hourly"] + "]").prop('checked',true);
+					$("input[name=Hourly]").checkboxradio('refresh');
+					$("#stTime").val(ls_pto["stTime"]);
+					$("#stTime").selectmenu('refresh');
+					$("#edTime").val(ls_pto["edTime"]);
+					$("#edTime").selectmenu('refresh');
+
+					$("input[name=Disconnect][value=" +ls_pto["disconnect"] + "]").prop('checked',true);
+					$("input[name=Disconnect]").checkboxradio('refresh');
+
+					$("input[name=Connect][value=" +ls_pto["connect"] + "]").prop('checked',true);
+					$("input[name=Connect]").checkboxradio('refresh');
+					
 					$("input[name=second][value=" +ls_pto["second"] + "]").prop('checked',true);
 		  			$("input[name=second]").checkboxradio('refresh');	
 		  		}
@@ -354,7 +344,7 @@
 				//localStorageに保存
 	          		if (typeof window.localStorage !== "undefined") 
 	          		{
-					window.localStorage.setItem("pebble_DateTimeCalendar2_options", ls_pto);
+					window.localStorage.setItem("pebble_DigiTimeXL_options", ls_pto);
 				}
 				
 				var return_to = getQueryParam("return_to", "pebblejs://close#");
