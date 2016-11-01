@@ -43,6 +43,14 @@
 </fieldset>
 
 <fieldset data-role="controlgroup" data-type="horizontal" data-mini="true">
+    <legend>ShowSecond:</legend>
+        <input name="second" id="SecondOff" value="0" type="radio">
+        <label for="SecondOff">Off</label>
+        <input name="second" id="SecondOn" value="1" checked="checked" type="radio">
+        <label for="SecondOn">On</label>
+</fieldset>
+	      
+<fieldset data-role="controlgroup" data-type="horizontal" data-mini="true">
     <legend>ShowHoliday(JapaneseOnly):</legend>
         <input name="holiday" id="HolidayOff" value="0" checked="checked" type="radio">
         <label for="HolidayOff">Off</label>
@@ -255,7 +263,8 @@
 				"stTime": parseInt($("#stTime").val()),
 				"edTime": parseInt($("#edTime").val()),
 				"disconnect": parseInt($("input:radio[name=Disconnect]:checked").val()),
-				"connect": parseInt($("input:radio[name=Connect]:checked").val())
+				"connect": parseInt($("input:radio[name=Connect]:checked").val()),
+				"second": parseInt($("input:radio[name=second]:checked").val())
 			}
 			return options;
 		}
@@ -326,6 +335,8 @@
 		  				$("input[name=Connect][value=" +ls_pto["connect"] + "]").prop('checked',true);
 		  				$("input[name=Connect]").checkboxradio('refresh');
 		  			}
+					$("input[name=second][value=" +ls_pto["second"] + "]").prop('checked',true);
+		  			$("input[name=second]").checkboxradio('refresh');	
 		  		}
 		  	}
 		  	
